@@ -1,15 +1,17 @@
 # Museum-Management-System
-Contains three main files: Form1.cs, class1.cs, and class2.cs
-Form1.cs : 
-*Methods:
-	* load_file():
+## Files:
+ Contains three main files: Form1.cs, class1.cs, and class2.cs
+### Form1.cs : 
+#### Methods:
+	###### load_file():
 	Checks if the file exists for a filepath and loads the content 
-from the 
-	file to the arraylist	
-	toggle_panel():
+	from the file to the arralist	
+	
+	###### toggle_panel():
 	Switches between different panels: homePanel, insertPanel reportpPanel 
 	in response to atheir respective button click
-	CreateVisitor():
+	
+	###### CreateVisitor():
 	Receives input from the form, validates input and creates an object of 
 	visitor.
 	insert_visitor_btn_click():
