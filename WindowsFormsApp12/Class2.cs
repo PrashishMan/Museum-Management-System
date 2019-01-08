@@ -11,6 +11,8 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 
+//er.sushilsapkota@gmail.com
+
 namespace ControllerClass
 {
     class VisitorController {
@@ -91,7 +93,12 @@ namespace ControllerClass
         {
             
             Random rand_int = new Random();
-            visitor.VisitorId = rand_int.Next(1, 10000);
+            int visitorId = rand_int.Next(1000, 9999);
+            while (get_visitor(visitorId) != null) {
+                Console.WriteLine("Generating visitor id ... ");
+                visitorId = rand_int.Next(1000, 9999);
+            }
+            visitor.VisitorId = visitorId;
             visitorList.Add(visitor);
             return visitor;
        }
