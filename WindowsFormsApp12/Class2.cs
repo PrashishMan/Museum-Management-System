@@ -1,15 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RequiredObjects;
 using System.IO;
-
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
 
 //er.sushilsapkota@gmail.com
 
@@ -17,6 +9,8 @@ namespace ControllerClass
 {
     class VisitorController {
 
+
+        string visitor_file_2 = "visitors_file.csv";
         public List<Visitor> visitorList;
         public VisitorController(List<Visitor> visitorList) {
             this.visitorList = visitorList;
@@ -95,7 +89,6 @@ namespace ControllerClass
             Random rand_int = new Random();
             int visitorId = rand_int.Next(1000, 9999);
             while (get_visitor(visitorId) != null) {
-                Console.WriteLine("Generating visitor id ... ");
                 visitorId = rand_int.Next(1000, 9999);
             }
             visitor.VisitorId = visitorId;
@@ -103,8 +96,9 @@ namespace ControllerClass
             return visitor;
        }
 
-        public void read_visitor_csv(string file_path)
+        public List<Visitor> read_visitor_csv(string file_path)
         {
+            List<Visitor> uploadedVisitorsList = new List<Visitor>();
             try
             {
                 using (var reader = new StreamReader(file_path))
@@ -113,6 +107,7 @@ namespace ControllerClass
                     {
                         reader.ReadLine();
                     }
+
                     while (!reader.EndOfStream)
                     {
                         var line = reader.ReadLine();
@@ -120,20 +115,20 @@ namespace ControllerClass
                         Visitor visitor = new Visitor(values[1], values[2], values[3], values[4], values[5], values[6], values[7]);
                         visitor.VisitorId = Int32.Parse(values[0]);
 
-                        if (this.get_visitor(visitor.VisitorId) == null  )
+                        if (this.get_visitor(visitor.VisitorId) == null)
                         {
+                            uploadedVisitorsList.Add(visitor);
                             this.visitorList.Add(visitor);
                         }
-                        
                     }
                 }
 
             }
             catch (IOException)
             {
-                Console.WriteLine("File not found");
+                Console.WriteLine("File not found : " + file_path);
             }
-
+            return uploadedVisitorsList;
         }
 
         public Visitor get_visitor(int visitor_id)
@@ -179,8 +174,7 @@ namespace ControllerClass
 
         public void write_visitors_data(Visitor visitor, string file_path)
         {
-            string desktop_path = file_path;
-            using (var writer = new StreamWriter(desktop_path, append: true))
+            using (var writer = new StreamWriter(file_path, append: true))
             {
                 var line = string.Format("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}", visitor.VisitorId, visitor.FirstName, visitor.LastName, visitor.Contact, visitor.Occupancy, visitor.Gender, visitor.Country, visitor.Email);
                 writer.WriteLine(line);
@@ -190,18 +184,234 @@ namespace ControllerClass
 
     }
 
+    class ReportController {
+        
+        public List<VisitorsEntry> VisitorEntryList;
+
+        public EntryController entryController;
+
+        public ReportController(List<VisitorsEntry> VisitorEntryList) {
+            entryController = new EntryController();
+            this.VisitorEntryList = VisitorEntryList;
+        }
+
+        public List<VisitorsEntry> getDailyReport(DateTime dateTime)
+        {
+
+            //Passing by value
+            List<VisitorsEntry> currentVisitorsEntry = entryController.entry_merge_sort(new List<VisitorsEntry>(this.VisitorEntryList), "DATE");
+            List<VisitorsEntry> foundEntries = new List<VisitorsEntry>();
+            currentVisitorsEntry = entryController.entry_merge_sort(currentVisitorsEntry, "DATE");
+
+            int min_index = 0;
+            int max_index = currentVisitorsEntry.Count - 1;
+            
+            int mid_index = (min_index + max_index) / 2;
+            if (max_index == 0)
+            {
+                if (currentVisitorsEntry[0].EntryDate.CompareTo(dateTime) == 0) {
+                    return currentVisitorsEntry;
+                }
+            }
+            
+            while (min_index <= max_index)
+            {
+                mid_index = (min_index + max_index) / 2;
+                DateTime selectedEntry = currentVisitorsEntry[mid_index].EntryDate;
+                if (selectedEntry.CompareTo(dateTime) == 0)
+                {
+                    foundEntries.Add(currentVisitorsEntry[mid_index]);
+                    currentVisitorsEntry.RemoveAt(mid_index);
+                    max_index -= 1;
+                }
+                else if (dateTime.CompareTo(selectedEntry) == 1)
+                {
+                    min_index = mid_index + 1;
+                }
+                else if (dateTime.CompareTo(selectedEntry) == -1)
+                {
+                    max_index = mid_index - 1;
+                }
+            }
+            return foundEntries;
+        }
+
+        public List<VisitorsEntry> getMonthlyReport(DateTime dateTime)
+        {
+
+            //Passing by value
+            List<VisitorsEntry> currentVisitorsEntry = entryController.entry_merge_sort(new List<VisitorsEntry>(VisitorEntryList), "DATE");
+            List<VisitorsEntry> foundEntries = new List<VisitorsEntry>();
+            
+            int min_index = 0;
+            int max_index = currentVisitorsEntry.Count - 1;
+
+            int mid_index = (min_index + max_index) / 2;
+            if (max_index == 0)
+            {
+                return currentVisitorsEntry;
+            }
+
+            int count = 0;
+            while (min_index <= max_index)
+            {
+
+                mid_index = (min_index + max_index) / 2;
+                
+                DateTime selectedEntry = currentVisitorsEntry[mid_index].EntryDate;
+                Boolean isInBound = true;
+                
+
+                if (selectedEntry.CompareTo(dateTime) == 0 && isInBound)
+                {
+                    count += 1;
+                    foundEntries.Add(currentVisitorsEntry[mid_index]);
+                    currentVisitorsEntry.RemoveAt(min_index);
+                    max_index -= 1;
+                }
+                else if (dateTime.CompareTo(selectedEntry) == 1)
+                {
+                    min_index = mid_index + 1;
+                }
+                else if (dateTime.CompareTo(selectedEntry) == -1)
+                {
+                    max_index = mid_index - 1;
+                }
+            }
+            return foundEntries;
+        }
+
+
+
+    }
+
     class EntryController
     {
         public List<VisitorsEntry> VisitorEntryList;
 
         VisitorController visitorController;
+
+        public EntryController() { }
        
         public EntryController(VisitorController visitorController, List<VisitorsEntry> VisitorEntryList) {
             this.visitorController = visitorController;
             this.VisitorEntryList = VisitorEntryList;
         }
 
-        public List<VisitorsEntry> entry_merge_sort(List<VisitorsEntry> visitor_entry_list)
+
+        public VisitorsEntry getEntryById(int VisitorId)
+        {
+
+            
+            VisitorEntryList = entry_merge_sort(VisitorEntryList, "ID");
+            
+
+            
+            int min_index = 0;
+            int max_index = VisitorEntryList.Count-1;
+            int mid_index = (min_index + max_index) / 2;
+            if (max_index == 1)
+            {
+                return VisitorEntryList[0];
+            }
+
+            while (min_index <= max_index)
+            {
+                mid_index = (min_index + max_index) / 2;
+                if (VisitorEntryList[mid_index].VisitorId == VisitorId)
+                {
+                    return VisitorEntryList[mid_index];
+                }
+                else if (VisitorEntryList[mid_index].VisitorId > VisitorId)
+                {
+                    min_index = mid_index + 1;
+                }
+                else if (VisitorEntryList[mid_index].VisitorId < VisitorId)
+                {
+                    max_index = mid_index - 1;
+                }
+            }
+            return null;
+        }
+
+        public List<VisitorsEntry> getManyEntryById(int VisitorId)
+        {
+            
+            VisitorEntryList = entry_merge_sort(VisitorEntryList, "ID");
+            List<VisitorsEntry> searchList = new List<VisitorsEntry>(VisitorEntryList);
+            List<VisitorsEntry> foundList = new List<VisitorsEntry>();
+
+            int min_index = 0;
+            int max_index = searchList.Count-1;
+            int mid_index = (min_index + max_index) / 2;
+            if (max_index == 0)
+            {
+                if (searchList[0].VisitorId == VisitorId) {
+                    return searchList;
+                }
+            }
+
+            while (min_index <= max_index)
+            {
+                mid_index = (min_index + max_index) / 2;
+
+                int ValidVisitorId = searchList[mid_index].VisitorId; ;
+                
+
+                if (ValidVisitorId == VisitorId)
+                {
+
+                    foundList.Add(searchList[mid_index]);
+                    searchList.RemoveAt(mid_index);
+                    max_index -= 1;
+                }
+                else if (ValidVisitorId < VisitorId)
+                {
+                    min_index = mid_index + 1;
+                }
+                else if (ValidVisitorId > VisitorId)
+                {
+                    max_index = mid_index - 1;
+                }
+            }
+            return foundList;
+        }
+
+
+        public VisitorsEntry getEntryByDate(TimeSpan entryTime)
+        {
+
+            VisitorEntryList = entry_merge_sort(VisitorEntryList, "TIME");
+
+            int min_index = 0;
+            int max_index = VisitorEntryList.Count;
+            int mid_index = (min_index + max_index) / 2;
+            if (max_index == 1)
+            {
+                return null;
+            }
+
+            while (min_index <= max_index)
+            {
+                mid_index = (min_index + max_index) / 2;
+
+                if (VisitorEntryList[mid_index].EntryTime.CompareTo(entryTime) == 0)
+                {
+                    return VisitorEntryList[mid_index];
+                }
+                else if (VisitorEntryList[mid_index].EntryTime.CompareTo(entryTime) == -1)
+                {
+                    min_index = mid_index + 1;
+                }
+                else if (VisitorEntryList[mid_index].EntryTime.CompareTo(entryTime) == 1)
+                {
+                    max_index = mid_index - 1;
+                }
+            }
+            return null;
+        }
+
+        public List<VisitorsEntry> entry_merge_sort(List<VisitorsEntry> visitor_entry_list, String condition)
         {
             int final_index = visitor_entry_list.Count;
             int middle_index = final_index / 2;
@@ -223,22 +433,45 @@ namespace ControllerClass
                 second_list.Add(visitor_entry_list[i]);
             }
 
-            entry_merge_sort(first_list);
-            entry_merge_sort(second_list);
+            entry_merge_sort(first_list, condition);
+            entry_merge_sort(second_list, condition);
 
-            entry_merge_array(first_list, second_list, visitor_entry_list);
+            entry_merge_array(first_list, second_list, visitor_entry_list, condition);
             return visitor_entry_list;
         }
 
-        public void entry_merge_array(List<VisitorsEntry> first_list, List<VisitorsEntry> second_list, List<VisitorsEntry> visitor_entry_list)
+        public void entry_merge_array(List<VisitorsEntry> first_list, List<VisitorsEntry> second_list, List<VisitorsEntry> visitor_entry_list, string condition)
         {
             int first_index = 0;
             int second_index = 0;
             int final_index = 0;
-
+            
             while (first_index < first_list.Count && second_index < second_list.Count)
             {
-                if (first_list[first_index].EntryTime < second_list[second_index].EntryTime)
+                Boolean conditionId = first_list[first_index].VisitorId < second_list[second_index].VisitorId;
+                Boolean conditionDate = (first_list[first_index].EntryDate.CompareTo(second_list[second_index].EntryDate) <= 0);
+                Boolean conditionTime = (first_list[first_index].EntryTime.CompareTo(second_list[second_index].EntryTime) <= 0) && (first_list[first_index].EntryDate.CompareTo(second_list[second_index].EntryDate) <= 0);
+                
+                Boolean checkCondition;
+                switch (condition) {
+                    case "ID":
+                        checkCondition = conditionId;
+                        break;
+
+                    case "DATE":
+                        checkCondition = conditionDate;
+                        break;
+
+                    case "TIME":
+                        checkCondition = conditionTime;
+                        break;
+
+                    default:
+                        checkCondition = false;
+                        break;
+                }
+
+                if (checkCondition) 
                 {
                     visitor_entry_list.RemoveAt(final_index);
                     visitor_entry_list.Insert(final_index, first_list[first_index]);
@@ -282,7 +515,8 @@ namespace ControllerClass
                     {
                         var line = reader.ReadLine();
                         var values = line.Split(',');
-                        VisitorsEntry visitorEntry = new VisitorsEntry(Convert.ToDateTime(values[1]), TimeSpan.Parse(values[2]), TimeSpan.Parse(values[3]));
+                        
+                        VisitorsEntry visitorEntry = new VisitorsEntry(Convert.ToDateTime(values[1]), values[2].ToString(), TimeSpan.Parse(values[3]), TimeSpan.Parse(values[4]), Convert.ToDouble(values[5]));
                         visitorEntry.VisitorId = Int32.Parse(values[0]);
 
                         if (visitorController.get_visitor(visitorEntry.VisitorId) != null)
@@ -295,47 +529,18 @@ namespace ControllerClass
             }
             catch (IOException)
             {
-                Console.WriteLine("File not found");
+                Console.WriteLine("File not found : " + file_path);
             }
 
         }
 
-        public VisitorsEntry get_entry(TimeSpan entryTime)
-        {
-            int min_index = 0;
-            int max_index = VisitorEntryList.Count -1;
-            int mid_index = (min_index + max_index) / 2; 
-            if (max_index == 0)
-            {
-                return null;
-            }
-
-            while (min_index <= max_index)
-            {
-                mid_index = ((min_index + max_index) / 2);
-                Console.WriteLine(VisitorEntryList.Count);
-                Console.WriteLine(mid_index);
-                if (VisitorEntryList[mid_index].EntryTime == entryTime)
-                {
-                    return VisitorEntryList[mid_index];
-                }
-                else if (entryTime > VisitorEntryList[mid_index].EntryTime)
-                {
-                    min_index = mid_index + 1;
-                }
-                else if (entryTime < VisitorEntryList[mid_index].EntryTime)
-                {
-                    max_index = mid_index - 1;
-                }
-            }
-            return null;
-        }
+        
 
         public void initiate_entry_data(string file_path)
         {
             using (var writer = new StreamWriter(file_path))
             {
-                var line = string.Format("{0}, {1}, {2}, {3}", "Visitor Id", "Entry Date", "Entry Time", "Exit Time");
+                var line = string.Format("{0}, {1}, {2}, {3}, {4}, {5}", "Visitor Id", "Day" ,"Entry Date", "Entry Time", "Exit Time", "Duration");
                 writer.WriteLine(line);
                 writer.Flush();
             }
@@ -346,7 +551,9 @@ namespace ControllerClass
             string desktop_path = file_path;
             using (var writer = new StreamWriter(desktop_path, append: true))
             {
-                var line = string.Format("{0}, {1}, {2}, {3}", visitorEntry.VisitorId, visitorEntry.EntryDate, visitorEntry.EntryTime, visitorEntry.ExitTime);
+
+                var line = string.Format("{0}, {1}, {2}, {3}, {4}, {5}", visitorEntry.VisitorId,  visitorEntry.EntryDate, visitorEntry.Day, visitorEntry.EntryTime, visitorEntry.ExitTime, visitorEntry.Duration );
+
                 writer.WriteLine(line);
                 writer.Flush();
             }

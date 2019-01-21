@@ -8,9 +8,7 @@ namespace RequiredObjects
 {
     public class Visitor
     {
-
-        //lambda expression
-        // While(listVisitor.Where(x => x.Cardno)!= null)
+        
         public int VisitorId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -36,32 +34,41 @@ namespace RequiredObjects
 
     public class VisitorsEntry {
         public int VisitorId { get; set; }
+        public String Day { get; set; }
         public DateTime EntryDate { get; set; }
         public TimeSpan EntryTime { get; set; }
         public TimeSpan ExitTime { get; set; }
+        public Double Duration { get; set; }
 
         public VisitorsEntry() { }
 
-        public VisitorsEntry(DateTime EntryDate, TimeSpan EntryTime, TimeSpan ExitTime)
+        public VisitorsEntry(DateTime EntryDate, String Day, TimeSpan EntryTime, TimeSpan ExitTime, Double Duration)
         {
             this.EntryDate = EntryDate;
+            this.Day = Day;
             this.EntryTime = EntryTime;
             this.ExitTime = ExitTime;
+            this.Duration = Duration;
 
         }
+        
 
-        public VisitorsEntry(int VisitorId, DateTime EntryDate, TimeSpan EntryTime)
+        public VisitorsEntry(int VisitorId, String Day, DateTime EntryDate, TimeSpan EntryTime)
         {
+
             this.VisitorId = VisitorId;
             this.EntryDate = EntryDate;
             this.EntryTime = EntryTime;
+            this.Day = Day;
         }
 
-        public VisitorsEntry(int VisitorId, DateTime EntryDate, TimeSpan EntryTime, TimeSpan ExitTime) {
+        public VisitorsEntry(int VisitorId, String Day, DateTime EntryDate, TimeSpan EntryTime, TimeSpan ExitTime, Double Duration) {
             this.VisitorId = VisitorId;
             this.EntryDate = EntryDate;
             this.EntryTime = EntryTime;
             this.ExitTime = ExitTime;
+            this.Day = Day;
+            this.Duration = Duration;
         }
     }
 }
