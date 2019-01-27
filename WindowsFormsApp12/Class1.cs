@@ -49,10 +49,8 @@ namespace RequiredObjects
             this.EntryTime = EntryTime;
             this.ExitTime = ExitTime;
             this.Duration = Duration;
-
         }
         
-
         public VisitorsEntry(int VisitorId, String Day, DateTime EntryDate, TimeSpan EntryTime)
         {
 

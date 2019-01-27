@@ -52,11 +52,15 @@ namespace WindowsFormsApp12
 
             CurrentDate = DateTime.UtcNow.Date;
             HomeDateLabel.Text = CurrentDate.ToString("dd/MM/yyyy");
-            entry_error_label.Visible = false;
 
-            load_file();
+            entry_error_label.Visible = false;
+            visitor_id_error.Visible = false;
+
+            loadFile();
             
             this.populateWeeklyReport();
+
+            content_title_label.Text = "Entry Panel";
         }
 
         private void getDailyReport(DateTime dateTime)
@@ -78,7 +82,7 @@ namespace WindowsFormsApp12
                 }
             }
 
-            this.add_visitor_report(visitorsEntryDict);
+            this.addVisitorReport(visitorsEntryDict);
             totalVisitors.Text = visitorsEntryDict.Count.ToString();
         }
 
@@ -87,10 +91,10 @@ namespace WindowsFormsApp12
             return time.Hours + " : " + time.Minutes + " : " + time.Seconds;
         }
 
-        public void add_visitor_report(Dictionary<int, Double> entryDict)
+        public void addVisitorReport(Dictionary<int, Double> entryDict)
         {
             foreach (KeyValuePair<int, Double> entry in entryDict) {
-                Visitor visitor = visitorController.get_visitor(entry.Key);
+                Visitor visitor = visitorController.getVisitor(entry.Key);
                 if (visitor != null)
                 {
                     this.DailyReportTable.Rows.Add(entry.Key, visitor.FirstName + " " + visitor.LastName, Convert.ToDecimal(string.Format("{0:F3}", entry.Value)).ToString() + " min");
@@ -100,12 +104,12 @@ namespace WindowsFormsApp12
         }
 
 
-        public void load_file()
+        public void loadFile()
         {
             // file.create(path)
             if (File.Exists(visitor_file))
             {
-                visitorController.read_visitor_csv(visitor_file);
+                visitorController.readVisitorCSV(visitor_file);
                 
 
                 foreach (Visitor visitor in VisitorList)
@@ -115,11 +119,11 @@ namespace WindowsFormsApp12
 
                 if (File.Exists(visitor_entry_file))
                 {
-                    entryController.read_entry_csv(visitor_entry_file);
+                    entryController.readEntryCSV(visitor_entry_file);
 
                     foreach (VisitorsEntry visitorEntry in VisitorEntryList)
                     {
-                        this.add_visitor_entry(visitorEntry);
+                        this.addVisitorEntry(visitorEntry);
 
                     }
                 }
@@ -138,6 +142,7 @@ namespace WindowsFormsApp12
                         insert_panel.Visible = false;
                         dailyReportPanel.Visible = false;
                         weeklyReportPanel.Visible = false;
+                        content_title_label.Text = "Entry Panel";
                     }
                     break;
 
@@ -148,6 +153,7 @@ namespace WindowsFormsApp12
                         home_panel.Visible = false;
                         dailyReportPanel.Visible = false;
                         weeklyReportPanel.Visible = false;
+                        content_title_label.Text = "Visitors Panel";
                     }
                     break;
 
@@ -158,6 +164,7 @@ namespace WindowsFormsApp12
                         insert_panel.Visible = false;
                         home_panel.Visible = false;
                         weeklyReportPanel.Visible = false;
+                        content_title_label.Text = "Daily Report Panel";
                     }
                     break;
 
@@ -169,6 +176,7 @@ namespace WindowsFormsApp12
                         dailyReportPanel.Visible = false;
                         insert_panel.Visible = false;
                         home_panel.Visible = false;
+                        content_title_label.Text = "Weekly Report Panel";
                     }
                     break;
 
@@ -183,7 +191,7 @@ namespace WindowsFormsApp12
             this.togglePanel(1);
         }
 
-        private void InsertVisitorBtn_Click(object sender, EventArgs e)
+        private void insert_visitor_btn_Click(object sender, EventArgs e)
         {
             this.togglePanel(2);
         }
@@ -269,19 +277,22 @@ namespace WindowsFormsApp12
             return null;
         }
 
-        private void insert_visitor_btn_Click(object sender, EventArgs e)
+        private void insertVisitor_btn_Click(object sender, EventArgs e)
         {
             Visitor visitor = this.createVisitor();
-            visitorController.insert_visitor(visitor);
-            if (!File.Exists(visitor_file))
-            {
-                visitorController.initiate_visitors_data(visitor_file);
-            }
-            if (visitor != null)
-            {
-                this.insertToTable(visitor);
-                visitorController.write_visitors_data(visitor, visitor_file);
-                this.clear_fields();
+            if (visitor != null) {
+                visitorController.insertVisitor(visitor);
+                if (!File.Exists(visitor_file))
+                {
+                    visitorController.initiateVisitorData(visitor_file);
+                }
+
+                if (visitor != null)
+                {
+                    this.insertToTable(visitor);
+                    visitorController.writeVisitorsData(visitor, visitor_file);
+                    this.clearFields();
+                }
             }
         }
 
@@ -291,9 +302,9 @@ namespace WindowsFormsApp12
                 visitor.Contact, visitor.Occupancy, visitor.Gender, visitor.Email);
         }
 
-        public void add_visitor_entry(VisitorsEntry entry)
+        public void addVisitorEntry(VisitorsEntry entry)
         {
-            Visitor visitor = visitorController.get_visitor(entry.VisitorId);
+            Visitor visitor = visitorController.getVisitor(entry.VisitorId);
             if (visitor != null)
             {
                 if (entry.ExitTime.ToString() != "00:00:00")
@@ -315,9 +326,27 @@ namespace WindowsFormsApp12
             Boolean is_valid = true;
             entry_error_label.Visible = false;
 
+            if (visitor_id_field.Text == "")
+            {
+                entry_error_label.Visible = true;
+                entry_error_label.Text = "Error: Visitor id field is empty!! ";
+                is_valid = false;
+                return false;
+            }
 
-            List<VisitorsEntry> selectedEntryList = entryController.getManyEntryById(Int32.Parse(visitor_id_field.Text));
-            
+            List<VisitorsEntry> selectedEntryList = new List<VisitorsEntry>();
+            try
+            {
+                selectedEntryList = entryController.getManyEntryById(Int32.Parse(visitor_id_field.Text));
+            }
+            catch (FormatException) {
+                entry_error_label.Visible = true;
+                entry_error_label.Text = "Error: Invalid Visitor id field !! ";
+                is_valid = false;
+                return false;
+            }
+
+
 
             if (string.IsNullOrEmpty(visitor_id_field.Text))
             {
@@ -325,7 +354,7 @@ namespace WindowsFormsApp12
                 entry_error_label.Text = "Error: Must enter visitor id field!! ";
                 is_valid = false;
             }
-            else if (visitorController.get_visitor(Int32.Parse(visitor_id_field.Text)) == null)
+            else if (visitorController.getVisitor(Int32.Parse(visitor_id_field.Text)) == null)
             {
                 entry_error_label.Visible = true;
 
@@ -356,13 +385,13 @@ namespace WindowsFormsApp12
             {
                 string file_path = open_file_dialog.FileName;
                 file_name_label.Text = file_path;
-                List<Visitor> uploadedVisitorsList = visitorController.read_visitor_csv(file_path);
+                List<Visitor> uploadedVisitorsList = visitorController.readVisitorCSV(file_path);
 
                 foreach (Visitor v in uploadedVisitorsList) {
-                    visitorController.write_visitors_data(v, visitor_file);
+                    visitorController.writeVisitorsData(v, visitor_file);
                 }
 
-                VisitorList = visitorController.merge_sort(VisitorList);
+                VisitorList = visitorController.mergeSort(VisitorList);
                 visitors_table.Rows.Clear();
                 visitors_table.Refresh();
 
@@ -385,7 +414,7 @@ namespace WindowsFormsApp12
                 VisitorsEntry entry_record = new VisitorsEntry(visitor_id, day, CurrentDate, entry_time);
                 if (!File.Exists(visitor_entry_file))
                 {
-                    entryController.initiate_entry_data(visitor_entry_file);
+                    entryController.initiateEntryData(visitor_entry_file);
                 }
 
                 //Appends item to the list
@@ -393,35 +422,35 @@ namespace WindowsFormsApp12
 
                 //adds to the csv file 
                 //does not append updates the entire csv file
-                entryController.write_entry_data(entry_record, visitor_entry_file);
+                entryController.writeEntryData(entry_record, visitor_entry_file);
 
                 //Adds row to the table
-                this.add_visitor_entry(entry_record);
+                this.addVisitorEntry(entry_record);
                 this.populateWeeklyReport();
             }
         }
 
-        public void refresh_visitor_entry_table()
+        public void refreshVisitorEntryTable()
         {
             visitor_entry_table.Rows.Clear();
             visitor_entry_table.Refresh();
 
             foreach (VisitorsEntry entry in VisitorEntryList)
             {
-                this.add_visitor_entry(entry);
+                this.addVisitorEntry(entry);
             }
         }
 
-        public void update_visitor_entry_csv()
+        public void updateVisitorEntryCsv()
         {
             if (File.Exists(visitor_entry_file))
             {
                 File.Delete(@visitor_entry_file);
             }
-            entryController.initiate_entry_data(visitor_entry_file);
+            entryController.initiateEntryData(visitor_entry_file);
             foreach (VisitorsEntry visitorEntry in VisitorEntryList)
             {
-                entryController.write_entry_data(visitorEntry, visitor_entry_file);
+                entryController.writeEntryData(visitorEntry, visitor_entry_file);
             }
         }
 
@@ -438,8 +467,8 @@ namespace WindowsFormsApp12
 
                 VisitorEntryList.Remove(entry);
                 VisitorEntryList.Add(entry);
-                update_visitor_entry_csv();
-                refresh_visitor_entry_table();
+                updateVisitorEntryCsv();
+                refreshVisitorEntryTable();
             }
             else if (e.RowIndex > -1 && visitor_entry_table.Rows[e.RowIndex].Cells[0] != null)
             {
@@ -453,9 +482,9 @@ namespace WindowsFormsApp12
 
                     VisitorEntryList.Remove(visitorEntry);
                     VisitorEntryList.Add(visitorEntry);
-                    update_visitor_entry_csv();
+                    updateVisitorEntryCsv();
                 }
-                refresh_visitor_entry_table();
+                refreshVisitorEntryTable();
             }
         }
         
@@ -469,7 +498,7 @@ namespace WindowsFormsApp12
         }
 
 
-        public void clear_fields()
+        public void clearFields()
         {
             insert_first_name_field.Text = "";
             insert_last_name_field.Text = "";
@@ -605,23 +634,23 @@ namespace WindowsFormsApp12
             }
         }
 
-        public Dictionary<String, int> getVisitorsEntries(int visitorId) {
+        public Dictionary<String, double> getVisitorsEntries(int visitorId) {
             String[] weekDays = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-            Dictionary<String, int> visitsE = new Dictionary<string, int>();
+            Dictionary<String, double> visitsE = new Dictionary<string, double>();
             for (int i = 0; i < 5; i++) {
                 visitsE[weekDays[i]] = 0;
             }
-            Visitor visitor = visitorController.get_visitor(visitorId);
+            Visitor visitor = visitorController.getVisitor(visitorId);
             if (visitor != null) {
                 List<VisitorsEntry> entries = entryController.getManyEntryById(visitorId);
                 foreach (VisitorsEntry ve in entries)
                 {
                     if (visitsE.ContainsKey(ve.EntryDate.DayOfWeek.ToString()))
                     {
-                        visitsE[ve.EntryDate.DayOfWeek.ToString()] += 1;
+                        visitsE[ve.EntryDate.DayOfWeek.ToString()] += ve.Duration;
                     }
                     else {
-                        visitsE[ve.EntryDate.DayOfWeek.ToString()] = 1;
+                        visitsE[ve.EntryDate.DayOfWeek.ToString()] = ve.Duration;
                     }
                 }
             }
@@ -648,16 +677,33 @@ namespace WindowsFormsApp12
 
         private void checkVisitorInput_Click(object sender, EventArgs e)
         {
+            visitor_id_error.Visible = false;
             customerWeeklyChart.Series["Visits"].Points.Clear();
-            Dictionary<String, int> visits = this.getVisitorsEntries(Int32.Parse(weeklyVisitorId.Text));
-            foreach (KeyValuePair<String, int> ve in visits) {
-                customerWeeklyChart.Series["Visits"].Points.AddXY(ve.Key, ve.Value);
+            if (weeklyVisitorId.Text != "") {
+                try
+                {
+                    if (visitorController.getVisitor(Int32.Parse(weeklyVisitorId.Text)) != null)
+                    {
+                        Dictionary<String, double> visits = this.getVisitorsEntries(Int32.Parse(weeklyVisitorId.Text));
+                        foreach (KeyValuePair<String, double> ve in visits)
+                        {
+                            customerWeeklyChart.Series["Visits"].Points.AddXY(ve.Key, ve.Value);
+                        }
+                    }
+                    else {
+                        visitor_id_error.Visible = true;
+                        visitor_id_error.Text = "Invalid visitor id";
+                    }
+                }
+                catch (FormatException) {
+                    visitor_id_error.Visible = true;
+                    visitor_id_error.Text = "Invalid visitor id";
+                }
+
+
+
             }
         }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
