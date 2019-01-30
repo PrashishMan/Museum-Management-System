@@ -31,6 +31,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.left_panel = new System.Windows.Forms.Panel();
             this.left_button_panel = new System.Windows.Forms.Panel();
             this.exitBtn = new System.Windows.Forms.Button();
@@ -38,34 +41,43 @@
             this.dailyReportBtn = new System.Windows.Forms.Button();
             this.InsertVisitorBtn = new System.Windows.Forms.Button();
             this.HomeBtn = new System.Windows.Forms.Button();
+            this.weeklyReportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.top_level_panel = new System.Windows.Forms.Panel();
             this.content_panel = new System.Windows.Forms.Panel();
-            this.weeklyReportPanel = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.visitor_id_error = new System.Windows.Forms.Label();
-            this.customerWeeklyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.monthComboBox = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.weeklyReportTable = new System.Windows.Forms.DataGridView();
-            this.week = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tuesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wednesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.friday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.weeklyVisitorsView = new System.Windows.Forms.DataGridView();
-            this.Weeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visits = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.checkVisitorInput = new System.Windows.Forms.Button();
-            this.weeklyReport = new System.Windows.Forms.Label();
-            this.weeklyVisitorId = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.insert_panel = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.file_name_label = new System.Windows.Forms.Label();
+            this.upload_csv = new System.Windows.Forms.Button();
+            this.visitors_table = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.occupancy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.insert_first_name_field = new System.Windows.Forms.TextBox();
+            this.insert_last_name_field = new System.Windows.Forms.TextBox();
+            this.insert_contact_field = new System.Windows.Forms.TextBox();
+            this.insert_occupancy_combo = new System.Windows.Forms.ComboBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.insert_female_radio = new System.Windows.Forms.RadioButton();
+            this.insert_male_radio = new System.Windows.Forms.RadioButton();
+            this.insert_country_field = new System.Windows.Forms.TextBox();
+            this.insert_email_field = new System.Windows.Forms.TextBox();
+            this.error_message = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.home_panel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.visitor_entry_table = new System.Windows.Forms.DataGridView();
@@ -96,61 +108,58 @@
             this.visitorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.dailyReportchechbtn = new System.Windows.Forms.Button();
             this.reportDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.dailyReportchechbtn = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.insert_panel = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.file_name_label = new System.Windows.Forms.Label();
-            this.upload_csv = new System.Windows.Forms.Button();
-            this.visitors_table = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.occupancy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.insert_first_name_field = new System.Windows.Forms.TextBox();
-            this.insert_last_name_field = new System.Windows.Forms.TextBox();
-            this.insert_contact_field = new System.Windows.Forms.TextBox();
-            this.insert_occupancy_combo = new System.Windows.Forms.ComboBox();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.insert_female_radio = new System.Windows.Forms.RadioButton();
-            this.insert_male_radio = new System.Windows.Forms.RadioButton();
-            this.insert_country_field = new System.Windows.Forms.TextBox();
-            this.insert_email_field = new System.Windows.Forms.TextBox();
-            this.error_message = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.insert_visitor_btn = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.weeklyReportPanel = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.monthComboBox = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.weeklyReportTable = new System.Windows.Forms.DataGridView();
+            this.week = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tuesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wednesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.friday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.checkVisitorInput = new System.Windows.Forms.Button();
+            this.weeklyReport = new System.Windows.Forms.Label();
+            this.weeklyVisitorId = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.visitor_id_error = new System.Windows.Forms.Label();
+            this.customerWeeklyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.weeklyVisitorsView = new System.Windows.Forms.DataGridView();
+            this.Weeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visits = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.weeklyCheckBtn = new System.Windows.Forms.Button();
+            this.weeklyReportDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
             this.title_panel = new System.Windows.Forms.Panel();
             this.content_title_label = new System.Windows.Forms.Label();
+            this.addVisitorBtn = new System.Windows.Forms.Button();
             this.left_panel.SuspendLayout();
             this.left_button_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weeklyReportChart)).BeginInit();
             this.top_level_panel.SuspendLayout();
             this.content_panel.SuspendLayout();
-            this.weeklyReportPanel.SuspendLayout();
-            this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerWeeklyChart)).BeginInit();
-            this.panel18.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.weeklyReportTable)).BeginInit();
-            this.panel19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.weeklyVisitorsView)).BeginInit();
-            this.panel13.SuspendLayout();
+            this.insert_panel.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.visitors_table)).BeginInit();
+            this.panel8.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.home_panel.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.visitor_entry_table)).BeginInit();
@@ -163,15 +172,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.DailyReportTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel15.SuspendLayout();
-            this.insert_panel.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.visitors_table)).BeginInit();
-            this.panel8.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.weeklyReportPanel.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weeklyReportTable)).BeginInit();
+            this.panel22.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerWeeklyChart)).BeginInit();
+            this.panel18.SuspendLayout();
+            this.panel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weeklyVisitorsView)).BeginInit();
+            this.panel17.SuspendLayout();
+            this.panel25.SuspendLayout();
             this.title_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -274,6 +288,23 @@
             this.HomeBtn.UseVisualStyleBackColor = false;
             this.HomeBtn.Click += new System.EventHandler(this.HomeBtn_Click);
             // 
+            // weeklyReportChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.weeklyReportChart.ChartAreas.Add(chartArea1);
+            this.weeklyReportChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.weeklyReportChart.Legends.Add(legend1);
+            this.weeklyReportChart.Location = new System.Drawing.Point(0, 0);
+            this.weeklyReportChart.Name = "weeklyReportChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "visitDays";
+            this.weeklyReportChart.Series.Add(series1);
+            this.weeklyReportChart.Size = new System.Drawing.Size(374, 206);
+            this.weeklyReportChart.TabIndex = 0;
+            this.weeklyReportChart.Text = "chart1";
+            // 
             // top_level_panel
             // 
             this.top_level_panel.Controls.Add(this.content_panel);
@@ -286,591 +317,15 @@
             // 
             // content_panel
             // 
-            this.content_panel.Controls.Add(this.weeklyReportPanel);
-            this.content_panel.Controls.Add(this.home_panel);
             this.content_panel.Controls.Add(this.dailyReportPanel);
+            this.content_panel.Controls.Add(this.home_panel);
             this.content_panel.Controls.Add(this.insert_panel);
+            this.content_panel.Controls.Add(this.weeklyReportPanel);
             this.content_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.content_panel.Location = new System.Drawing.Point(0, 32);
+            this.content_panel.Location = new System.Drawing.Point(0, 28);
             this.content_panel.Name = "content_panel";
-            this.content_panel.Size = new System.Drawing.Size(600, 491);
+            this.content_panel.Size = new System.Drawing.Size(600, 495);
             this.content_panel.TabIndex = 0;
-            // 
-            // weeklyReportPanel
-            // 
-            this.weeklyReportPanel.Controls.Add(this.panel16);
-            this.weeklyReportPanel.Controls.Add(this.panel13);
-            this.weeklyReportPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.weeklyReportPanel.Location = new System.Drawing.Point(0, 0);
-            this.weeklyReportPanel.Name = "weeklyReportPanel";
-            this.weeklyReportPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.weeklyReportPanel.Size = new System.Drawing.Size(600, 491);
-            this.weeklyReportPanel.TabIndex = 3;
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.White;
-            this.panel16.Controls.Add(this.visitor_id_error);
-            this.panel16.Controls.Add(this.customerWeeklyChart);
-            this.panel16.Controls.Add(this.panel18);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(5, 35);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(590, 451);
-            this.panel16.TabIndex = 1;
-            // 
-            // visitor_id_error
-            // 
-            this.visitor_id_error.AutoSize = true;
-            this.visitor_id_error.ForeColor = System.Drawing.Color.Red;
-            this.visitor_id_error.Location = new System.Drawing.Point(4, 222);
-            this.visitor_id_error.Name = "visitor_id_error";
-            this.visitor_id_error.Size = new System.Drawing.Size(41, 13);
-            this.visitor_id_error.TabIndex = 4;
-            this.visitor_id_error.Text = "label15";
-            // 
-            // customerWeeklyChart
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.customerWeeklyChart.ChartAreas.Add(chartArea1);
-            this.customerWeeklyChart.Dock = System.Windows.Forms.DockStyle.Top;
-            legend1.Name = "Legend1";
-            this.customerWeeklyChart.Legends.Add(legend1);
-            this.customerWeeklyChart.Location = new System.Drawing.Point(0, 0);
-            this.customerWeeklyChart.Name = "customerWeeklyChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Visits";
-            series1.YValuesPerPoint = 2;
-            this.customerWeeklyChart.Series.Add(series1);
-            this.customerWeeklyChart.Size = new System.Drawing.Size(590, 217);
-            this.customerWeeklyChart.TabIndex = 3;
-            this.customerWeeklyChart.Text = "chart1";
-            // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.Black;
-            this.panel18.Controls.Add(this.panel20);
-            this.panel18.Controls.Add(this.panel19);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel18.Location = new System.Drawing.Point(0, 241);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(590, 210);
-            this.panel18.TabIndex = 2;
-            // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.Silver;
-            this.panel20.Controls.Add(this.panel17);
-            this.panel20.Location = new System.Drawing.Point(6, 6);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(361, 198);
-            this.panel20.TabIndex = 1;
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.DimGray;
-            this.panel17.Controls.Add(this.monthComboBox);
-            this.panel17.Controls.Add(this.label14);
-            this.panel17.Controls.Add(this.label13);
-            this.panel17.Controls.Add(this.weeklyReportTable);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(0, 0);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(361, 198);
-            this.panel17.TabIndex = 1;
-            // 
-            // monthComboBox
-            // 
-            this.monthComboBox.FormattingEnabled = true;
-            this.monthComboBox.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.monthComboBox.Location = new System.Drawing.Point(235, 6);
-            this.monthComboBox.Name = "monthComboBox";
-            this.monthComboBox.Size = new System.Drawing.Size(121, 21);
-            this.monthComboBox.TabIndex = 2;
-            this.monthComboBox.SelectedIndexChanged += new System.EventHandler(this.monthComboBox_SelectedIndexChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(3, 8);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(129, 16);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Monthly Summary";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label13.Location = new System.Drawing.Point(192, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 13);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Month";
-            // 
-            // weeklyReportTable
-            // 
-            this.weeklyReportTable.BackgroundColor = System.Drawing.Color.White;
-            this.weeklyReportTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.weeklyReportTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.week,
-            this.monday,
-            this.tuesday,
-            this.wednesday,
-            this.thursday,
-            this.friday});
-            this.weeklyReportTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.weeklyReportTable.Location = new System.Drawing.Point(0, 29);
-            this.weeklyReportTable.Name = "weeklyReportTable";
-            this.weeklyReportTable.Size = new System.Drawing.Size(361, 169);
-            this.weeklyReportTable.TabIndex = 0;
-            // 
-            // week
-            // 
-            this.week.HeaderText = "WEEK";
-            this.week.Name = "week";
-            this.week.Width = 50;
-            // 
-            // monday
-            // 
-            this.monday.HeaderText = "MON";
-            this.monday.Name = "monday";
-            this.monday.Width = 52;
-            // 
-            // tuesday
-            // 
-            this.tuesday.HeaderText = "TUE";
-            this.tuesday.Name = "tuesday";
-            this.tuesday.Width = 52;
-            // 
-            // wednesday
-            // 
-            this.wednesday.HeaderText = "WED";
-            this.wednesday.Name = "wednesday";
-            this.wednesday.Width = 52;
-            // 
-            // thursday
-            // 
-            this.thursday.HeaderText = "THU";
-            this.thursday.Name = "thursday";
-            this.thursday.Width = 55;
-            // 
-            // friday
-            // 
-            this.friday.HeaderText = "FRI";
-            this.friday.Name = "friday";
-            this.friday.Width = 55;
-            // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.DimGray;
-            this.panel19.Controls.Add(this.weeklyVisitorsView);
-            this.panel19.Location = new System.Drawing.Point(373, 6);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(210, 198);
-            this.panel19.TabIndex = 0;
-            // 
-            // weeklyVisitorsView
-            // 
-            this.weeklyVisitorsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.weeklyVisitorsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Weeks,
-            this.Visits});
-            this.weeklyVisitorsView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.weeklyVisitorsView.Location = new System.Drawing.Point(0, 0);
-            this.weeklyVisitorsView.Name = "weeklyVisitorsView";
-            this.weeklyVisitorsView.Size = new System.Drawing.Size(210, 198);
-            this.weeklyVisitorsView.TabIndex = 0;
-            // 
-            // Weeks
-            // 
-            this.Weeks.HeaderText = "Weeks";
-            this.Weeks.Name = "Weeks";
-            this.Weeks.Width = 120;
-            // 
-            // Visits
-            // 
-            this.Visits.HeaderText = "visits";
-            this.Visits.Name = "Visits";
-            this.Visits.Width = 50;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.DimGray;
-            this.panel13.Controls.Add(this.checkVisitorInput);
-            this.panel13.Controls.Add(this.weeklyReport);
-            this.panel13.Controls.Add(this.weeklyVisitorId);
-            this.panel13.Controls.Add(this.label16);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(5, 5);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(590, 30);
-            this.panel13.TabIndex = 0;
-            // 
-            // checkVisitorInput
-            // 
-            this.checkVisitorInput.Location = new System.Drawing.Point(529, 4);
-            this.checkVisitorInput.Name = "checkVisitorInput";
-            this.checkVisitorInput.Size = new System.Drawing.Size(56, 23);
-            this.checkVisitorInput.TabIndex = 3;
-            this.checkVisitorInput.Text = "Check";
-            this.checkVisitorInput.UseVisualStyleBackColor = true;
-            this.checkVisitorInput.Click += new System.EventHandler(this.checkVisitorInput_Click);
-            // 
-            // weeklyReport
-            // 
-            this.weeklyReport.AutoSize = true;
-            this.weeklyReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weeklyReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.weeklyReport.Location = new System.Drawing.Point(6, 6);
-            this.weeklyReport.Name = "weeklyReport";
-            this.weeklyReport.Size = new System.Drawing.Size(155, 15);
-            this.weeklyReport.TabIndex = 0;
-            this.weeklyReport.Text = "Customer Weekly Chart";
-            // 
-            // weeklyVisitorId
-            // 
-            this.weeklyVisitorId.Location = new System.Drawing.Point(417, 5);
-            this.weeklyVisitorId.Name = "weeklyVisitorId";
-            this.weeklyVisitorId.Size = new System.Drawing.Size(110, 20);
-            this.weeklyVisitorId.TabIndex = 2;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label16.Location = new System.Drawing.Point(351, 8);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 13);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Visitors ID";
-            // 
-            // home_panel
-            // 
-            this.home_panel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.home_panel.Controls.Add(this.panel4);
-            this.home_panel.Controls.Add(this.panel7);
-            this.home_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.home_panel.Location = new System.Drawing.Point(0, 0);
-            this.home_panel.Name = "home_panel";
-            this.home_panel.Size = new System.Drawing.Size(600, 491);
-            this.home_panel.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.visitor_entry_table);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 170);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(600, 321);
-            this.panel4.TabIndex = 2;
-            // 
-            // visitor_entry_table
-            // 
-            this.visitor_entry_table.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.visitor_entry_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.visitor_entry_table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.visitor_id,
-            this.day,
-            this.visitor_name,
-            this.entry_time,
-            this.exit_time,
-            this.duration,
-            this.visitor_exited});
-            this.visitor_entry_table.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.visitor_entry_table.Location = new System.Drawing.Point(0, 0);
-            this.visitor_entry_table.Name = "visitor_entry_table";
-            this.visitor_entry_table.Size = new System.Drawing.Size(600, 321);
-            this.visitor_entry_table.TabIndex = 0;
-            this.visitor_entry_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.visitor_entry_table_CellContentClick_1);
-            // 
-            // visitor_id
-            // 
-            this.visitor_id.HeaderText = "Visitor ID";
-            this.visitor_id.Name = "visitor_id";
-            this.visitor_id.Width = 50;
-            // 
-            // day
-            // 
-            this.day.HeaderText = "Day";
-            this.day.Name = "day";
-            this.day.Width = 70;
-            // 
-            // visitor_name
-            // 
-            this.visitor_name.HeaderText = "Visitor Name";
-            this.visitor_name.Name = "visitor_name";
-            this.visitor_name.Width = 145;
-            // 
-            // entry_time
-            // 
-            this.entry_time.HeaderText = "Entry Time";
-            this.entry_time.Name = "entry_time";
-            this.entry_time.Width = 70;
-            // 
-            // exit_time
-            // 
-            this.exit_time.HeaderText = "Exit Time";
-            this.exit_time.Name = "exit_time";
-            this.exit_time.Width = 70;
-            // 
-            // duration
-            // 
-            this.duration.HeaderText = "Duration";
-            this.duration.Name = "duration";
-            this.duration.Width = 80;
-            // 
-            // visitor_exited
-            // 
-            this.visitor_exited.HeaderText = "Exit";
-            this.visitor_exited.Name = "visitor_exited";
-            this.visitor_exited.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.visitor_exited.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.visitor_exited.Width = 70;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.panel2);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(600, 170);
-            this.panel7.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.entry_error_label);
-            this.panel2.Controls.Add(this.entry_btn);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.visitor_id_field);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(136, 7);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(321, 154);
-            this.panel2.TabIndex = 1;
-            // 
-            // entry_error_label
-            // 
-            this.entry_error_label.AutoSize = true;
-            this.entry_error_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entry_error_label.ForeColor = System.Drawing.Color.Crimson;
-            this.entry_error_label.Location = new System.Drawing.Point(15, 131);
-            this.entry_error_label.Name = "entry_error_label";
-            this.entry_error_label.Size = new System.Drawing.Size(52, 16);
-            this.entry_error_label.TabIndex = 9;
-            this.entry_error_label.Text = "label14";
-            this.entry_error_label.Visible = false;
-            // 
-            // entry_btn
-            // 
-            this.entry_btn.Location = new System.Drawing.Point(83, 95);
-            this.entry_btn.Name = "entry_btn";
-            this.entry_btn.Size = new System.Drawing.Size(169, 29);
-            this.entry_btn.TabIndex = 4;
-            this.entry_btn.Text = "Enter";
-            this.entry_btn.UseVisualStyleBackColor = true;
-            this.entry_btn.Click += new System.EventHandler(this.entry_btn_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(25, 55);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 16);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Visitor ID :";
-            // 
-            // visitor_id_field
-            // 
-            this.visitor_id_field.Location = new System.Drawing.Point(124, 53);
-            this.visitor_id_field.Name = "visitor_id_field";
-            this.visitor_id_field.Size = new System.Drawing.Size(169, 20);
-            this.visitor_id_field.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel3.Controls.Add(this.HomeDateLabel);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(319, 34);
-            this.panel3.TabIndex = 5;
-            // 
-            // HomeDateLabel
-            // 
-            this.HomeDateLabel.AutoSize = true;
-            this.HomeDateLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.HomeDateLabel.Location = new System.Drawing.Point(219, 9);
-            this.HomeDateLabel.Name = "HomeDateLabel";
-            this.HomeDateLabel.Size = new System.Drawing.Size(90, 13);
-            this.HomeDateLabel.TabIndex = 7;
-            this.HomeDateLabel.Text = "Home Date Label";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(8, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 16);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Visitor Entry";
-            // 
-            // dailyReportPanel
-            // 
-            this.dailyReportPanel.Controls.Add(this.panel14);
-            this.dailyReportPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dailyReportPanel.Location = new System.Drawing.Point(0, 0);
-            this.dailyReportPanel.Name = "dailyReportPanel";
-            this.dailyReportPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.dailyReportPanel.Size = new System.Drawing.Size(600, 491);
-            this.dailyReportPanel.TabIndex = 4;
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.panel12);
-            this.panel14.Controls.Add(this.DailyReportTable);
-            this.panel14.Controls.Add(this.dataGridView1);
-            this.panel14.Controls.Add(this.panel15);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(10, 10);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(580, 471);
-            this.panel14.TabIndex = 0;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel12.Controls.Add(this.label5);
-            this.panel12.Controls.Add(this.totalVisitors);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(0, 439);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(580, 32);
-            this.panel12.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(454, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Total Visitors";
-            // 
-            // totalVisitors
-            // 
-            this.totalVisitors.Enabled = false;
-            this.totalVisitors.Location = new System.Drawing.Point(531, 7);
-            this.totalVisitors.Name = "totalVisitors";
-            this.totalVisitors.Size = new System.Drawing.Size(44, 20);
-            this.totalVisitors.TabIndex = 0;
-            // 
-            // DailyReportTable
-            // 
-            this.DailyReportTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DailyReportTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.visitorID,
-            this.daily_day,
-            this.visitorName});
-            this.DailyReportTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DailyReportTable.Location = new System.Drawing.Point(0, 34);
-            this.DailyReportTable.Name = "DailyReportTable";
-            this.DailyReportTable.Size = new System.Drawing.Size(580, 437);
-            this.DailyReportTable.TabIndex = 2;
-            // 
-            // visitorID
-            // 
-            this.visitorID.HeaderText = "Visitor ID";
-            this.visitorID.Name = "visitorID";
-            // 
-            // daily_day
-            // 
-            this.daily_day.HeaderText = "Visitor Name";
-            this.daily_day.Name = "daily_day";
-            this.daily_day.Width = 300;
-            // 
-            // visitorName
-            // 
-            this.visitorName.HeaderText = "Duration";
-            this.visitorName.Name = "visitorName";
-            this.visitorName.Width = 138;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 34);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(580, 437);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel15.Controls.Add(this.dailyReportchechbtn);
-            this.panel15.Controls.Add(this.reportDatePicker);
-            this.panel15.Controls.Add(this.label12);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel15.Location = new System.Drawing.Point(0, 0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(580, 34);
-            this.panel15.TabIndex = 0;
-            // 
-            // dailyReportchechbtn
-            // 
-            this.dailyReportchechbtn.Location = new System.Drawing.Point(500, 5);
-            this.dailyReportchechbtn.Name = "dailyReportchechbtn";
-            this.dailyReportchechbtn.Size = new System.Drawing.Size(75, 23);
-            this.dailyReportchechbtn.TabIndex = 2;
-            this.dailyReportchechbtn.Text = "Check";
-            this.dailyReportchechbtn.UseVisualStyleBackColor = true;
-            this.dailyReportchechbtn.Click += new System.EventHandler(this.dailyReportchechbtn_Click);
-            // 
-            // reportDatePicker
-            // 
-            this.reportDatePicker.CustomFormat = "";
-            this.reportDatePicker.Location = new System.Drawing.Point(297, 7);
-            this.reportDatePicker.Name = "reportDatePicker";
-            this.reportDatePicker.Size = new System.Drawing.Size(200, 20);
-            this.reportDatePicker.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(8, 7);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(108, 20);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Daily Report";
             // 
             // insert_panel
             // 
@@ -879,7 +334,7 @@
             this.insert_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insert_panel.Location = new System.Drawing.Point(0, 0);
             this.insert_panel.Name = "insert_panel";
-            this.insert_panel.Size = new System.Drawing.Size(600, 491);
+            this.insert_panel.Size = new System.Drawing.Size(600, 495);
             this.insert_panel.TabIndex = 2;
             // 
             // panel6
@@ -890,7 +345,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 215);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(600, 276);
+            this.panel6.Size = new System.Drawing.Size(600, 280);
             this.panel6.TabIndex = 1;
             // 
             // panel10
@@ -899,7 +354,7 @@
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Controls.Add(this.upload_csv);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(0, 243);
+            this.panel10.Location = new System.Drawing.Point(0, 247);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(5);
             this.panel10.Size = new System.Drawing.Size(600, 33);
@@ -948,13 +403,12 @@
             this.contact,
             this.occupancy,
             this.gender,
-            this.email,
-            this.edit});
+            this.email});
             this.visitors_table.Dock = System.Windows.Forms.DockStyle.Fill;
             this.visitors_table.Enabled = false;
             this.visitors_table.Location = new System.Drawing.Point(0, 0);
             this.visitors_table.Name = "visitors_table";
-            this.visitors_table.Size = new System.Drawing.Size(600, 276);
+            this.visitors_table.Size = new System.Drawing.Size(600, 280);
             this.visitors_table.TabIndex = 8;
             // 
             // id
@@ -991,16 +445,11 @@
             // 
             this.email.HeaderText = "Email";
             this.email.Name = "email";
-            this.email.Width = 150;
-            // 
-            // edit
-            // 
-            this.edit.HeaderText = "Edit";
-            this.edit.Name = "edit";
-            this.edit.Width = 50;
+            this.email.Width = 185;
             // 
             // panel8
             // 
+            this.panel8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel8.Controls.Add(this.panel1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
@@ -1011,6 +460,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Controls.Add(this.addVisitorBtn);
             this.panel1.Controls.Add(this.insert_first_name_field);
             this.panel1.Controls.Add(this.insert_last_name_field);
             this.panel1.Controls.Add(this.insert_contact_field);
@@ -1020,7 +470,6 @@
             this.panel1.Controls.Add(this.insert_email_field);
             this.panel1.Controls.Add(this.error_message);
             this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.insert_visitor_btn);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
@@ -1137,7 +586,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel5.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel5.Controls.Add(this.label1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
@@ -1155,16 +604,6 @@
             this.label1.Size = new System.Drawing.Size(94, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Insert Visitor";
-            // 
-            // insert_visitor_btn
-            // 
-            this.insert_visitor_btn.Location = new System.Drawing.Point(495, 171);
-            this.insert_visitor_btn.Name = "insert_visitor_btn";
-            this.insert_visitor_btn.Size = new System.Drawing.Size(76, 23);
-            this.insert_visitor_btn.TabIndex = 15;
-            this.insert_visitor_btn.Text = "Add";
-            this.insert_visitor_btn.UseVisualStyleBackColor = true;
-            this.insert_visitor_btn.Click += new System.EventHandler(this.insert_visitor_btn_Click);
             // 
             // label11
             // 
@@ -1243,6 +682,657 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "First name :";
             // 
+            // home_panel
+            // 
+            this.home_panel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.home_panel.Controls.Add(this.panel4);
+            this.home_panel.Controls.Add(this.panel7);
+            this.home_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.home_panel.Location = new System.Drawing.Point(0, 0);
+            this.home_panel.Name = "home_panel";
+            this.home_panel.Size = new System.Drawing.Size(600, 495);
+            this.home_panel.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.visitor_entry_table);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 170);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(600, 325);
+            this.panel4.TabIndex = 2;
+            // 
+            // visitor_entry_table
+            // 
+            this.visitor_entry_table.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.visitor_entry_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.visitor_entry_table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.visitor_id,
+            this.day,
+            this.visitor_name,
+            this.entry_time,
+            this.exit_time,
+            this.duration,
+            this.visitor_exited});
+            this.visitor_entry_table.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.visitor_entry_table.Location = new System.Drawing.Point(0, 0);
+            this.visitor_entry_table.Name = "visitor_entry_table";
+            this.visitor_entry_table.Size = new System.Drawing.Size(600, 325);
+            this.visitor_entry_table.TabIndex = 0;
+            this.visitor_entry_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.visitor_entry_table_CellContentClick_1);
+            // 
+            // visitor_id
+            // 
+            this.visitor_id.HeaderText = "Visitor ID";
+            this.visitor_id.Name = "visitor_id";
+            this.visitor_id.Width = 50;
+            // 
+            // day
+            // 
+            this.day.HeaderText = "Day";
+            this.day.Name = "day";
+            this.day.Width = 70;
+            // 
+            // visitor_name
+            // 
+            this.visitor_name.HeaderText = "Visitor Name";
+            this.visitor_name.Name = "visitor_name";
+            this.visitor_name.Width = 145;
+            // 
+            // entry_time
+            // 
+            this.entry_time.HeaderText = "Entry Time";
+            this.entry_time.Name = "entry_time";
+            this.entry_time.Width = 70;
+            // 
+            // exit_time
+            // 
+            this.exit_time.HeaderText = "Exit Time";
+            this.exit_time.Name = "exit_time";
+            this.exit_time.Width = 70;
+            // 
+            // duration
+            // 
+            this.duration.HeaderText = "Duration";
+            this.duration.Name = "duration";
+            this.duration.Width = 80;
+            // 
+            // visitor_exited
+            // 
+            this.visitor_exited.HeaderText = "Exit";
+            this.visitor_exited.Name = "visitor_exited";
+            this.visitor_exited.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.visitor_exited.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.visitor_exited.Width = 70;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel7.Controls.Add(this.panel2);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(600, 170);
+            this.panel7.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.entry_error_label);
+            this.panel2.Controls.Add(this.entry_btn);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.visitor_id_field);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Location = new System.Drawing.Point(136, 7);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(321, 154);
+            this.panel2.TabIndex = 1;
+            // 
+            // entry_error_label
+            // 
+            this.entry_error_label.AutoSize = true;
+            this.entry_error_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.entry_error_label.ForeColor = System.Drawing.Color.Crimson;
+            this.entry_error_label.Location = new System.Drawing.Point(15, 131);
+            this.entry_error_label.Name = "entry_error_label";
+            this.entry_error_label.Size = new System.Drawing.Size(52, 16);
+            this.entry_error_label.TabIndex = 9;
+            this.entry_error_label.Text = "label14";
+            this.entry_error_label.Visible = false;
+            // 
+            // entry_btn
+            // 
+            this.entry_btn.BackColor = System.Drawing.SystemColors.Control;
+            this.entry_btn.Location = new System.Drawing.Point(83, 95);
+            this.entry_btn.Name = "entry_btn";
+            this.entry_btn.Size = new System.Drawing.Size(169, 29);
+            this.entry_btn.TabIndex = 4;
+            this.entry_btn.Text = "Enter";
+            this.entry_btn.UseVisualStyleBackColor = false;
+            this.entry_btn.Click += new System.EventHandler(this.entry_btn_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(25, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 16);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Visitor ID :";
+            // 
+            // visitor_id_field
+            // 
+            this.visitor_id_field.Location = new System.Drawing.Point(124, 53);
+            this.visitor_id_field.Name = "visitor_id_field";
+            this.visitor_id_field.Size = new System.Drawing.Size(169, 20);
+            this.visitor_id_field.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel3.Controls.Add(this.HomeDateLabel);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(319, 34);
+            this.panel3.TabIndex = 5;
+            // 
+            // HomeDateLabel
+            // 
+            this.HomeDateLabel.AutoSize = true;
+            this.HomeDateLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.HomeDateLabel.Location = new System.Drawing.Point(219, 9);
+            this.HomeDateLabel.Name = "HomeDateLabel";
+            this.HomeDateLabel.Size = new System.Drawing.Size(90, 13);
+            this.HomeDateLabel.TabIndex = 7;
+            this.HomeDateLabel.Text = "Home Date Label";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(8, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 16);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Visitor Entry";
+            // 
+            // dailyReportPanel
+            // 
+            this.dailyReportPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dailyReportPanel.Controls.Add(this.panel14);
+            this.dailyReportPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dailyReportPanel.Location = new System.Drawing.Point(0, 0);
+            this.dailyReportPanel.Name = "dailyReportPanel";
+            this.dailyReportPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.dailyReportPanel.Size = new System.Drawing.Size(600, 495);
+            this.dailyReportPanel.TabIndex = 4;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.panel12);
+            this.panel14.Controls.Add(this.DailyReportTable);
+            this.panel14.Controls.Add(this.dataGridView1);
+            this.panel14.Controls.Add(this.panel15);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(10, 10);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(580, 475);
+            this.panel14.TabIndex = 0;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel12.Controls.Add(this.label5);
+            this.panel12.Controls.Add(this.totalVisitors);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel12.Location = new System.Drawing.Point(0, 443);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(580, 32);
+            this.panel12.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(422, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 16);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Total Visitors";
+            // 
+            // totalVisitors
+            // 
+            this.totalVisitors.Enabled = false;
+            this.totalVisitors.Location = new System.Drawing.Point(528, 7);
+            this.totalVisitors.Name = "totalVisitors";
+            this.totalVisitors.Size = new System.Drawing.Size(44, 20);
+            this.totalVisitors.TabIndex = 0;
+            // 
+            // DailyReportTable
+            // 
+            this.DailyReportTable.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DailyReportTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DailyReportTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.visitorID,
+            this.daily_day,
+            this.visitorName});
+            this.DailyReportTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DailyReportTable.Location = new System.Drawing.Point(0, 34);
+            this.DailyReportTable.Name = "DailyReportTable";
+            this.DailyReportTable.Size = new System.Drawing.Size(580, 441);
+            this.DailyReportTable.TabIndex = 2;
+            // 
+            // visitorID
+            // 
+            this.visitorID.HeaderText = "Visitor ID";
+            this.visitorID.Name = "visitorID";
+            // 
+            // daily_day
+            // 
+            this.daily_day.HeaderText = "Visitor Name";
+            this.daily_day.Name = "daily_day";
+            this.daily_day.Width = 300;
+            // 
+            // visitorName
+            // 
+            this.visitorName.HeaderText = "Duration";
+            this.visitorName.Name = "visitorName";
+            this.visitorName.Width = 138;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 34);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(580, 441);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel15.Controls.Add(this.reportDatePicker);
+            this.panel15.Controls.Add(this.dailyReportchechbtn);
+            this.panel15.Controls.Add(this.label12);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(580, 34);
+            this.panel15.TabIndex = 0;
+            // 
+            // reportDatePicker
+            // 
+            this.reportDatePicker.CustomFormat = "";
+            this.reportDatePicker.Location = new System.Drawing.Point(297, 7);
+            this.reportDatePicker.Name = "reportDatePicker";
+            this.reportDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.reportDatePicker.TabIndex = 1;
+            // 
+            // dailyReportchechbtn
+            // 
+            this.dailyReportchechbtn.Location = new System.Drawing.Point(500, 5);
+            this.dailyReportchechbtn.Name = "dailyReportchechbtn";
+            this.dailyReportchechbtn.Size = new System.Drawing.Size(75, 23);
+            this.dailyReportchechbtn.TabIndex = 2;
+            this.dailyReportchechbtn.Text = "Check";
+            this.dailyReportchechbtn.UseVisualStyleBackColor = true;
+            this.dailyReportchechbtn.Click += new System.EventHandler(this.dailyReportchechbtn_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label12.Location = new System.Drawing.Point(8, 7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(108, 20);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Daily Report";
+            // 
+            // weeklyReportPanel
+            // 
+            this.weeklyReportPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.weeklyReportPanel.Controls.Add(this.panel16);
+            this.weeklyReportPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.weeklyReportPanel.Location = new System.Drawing.Point(0, 0);
+            this.weeklyReportPanel.Name = "weeklyReportPanel";
+            this.weeklyReportPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.weeklyReportPanel.Size = new System.Drawing.Size(600, 495);
+            this.weeklyReportPanel.TabIndex = 3;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.White;
+            this.panel16.Controls.Add(this.panel21);
+            this.panel16.Controls.Add(this.panel18);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel16.Location = new System.Drawing.Point(5, 5);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(590, 485);
+            this.panel16.TabIndex = 1;
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.Black;
+            this.panel21.Controls.Add(this.panel23);
+            this.panel21.Controls.Add(this.panel22);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel21.Location = new System.Drawing.Point(0, 244);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(590, 241);
+            this.panel21.TabIndex = 5;
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.panel24);
+            this.panel23.Controls.Add(this.weeklyReportTable);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel23.Location = new System.Drawing.Point(0, 0);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(288, 241);
+            this.panel23.TabIndex = 5;
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.DimGray;
+            this.panel24.Controls.Add(this.monthComboBox);
+            this.panel24.Controls.Add(this.label14);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel24.Location = new System.Drawing.Point(0, 0);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(288, 30);
+            this.panel24.TabIndex = 1;
+            // 
+            // monthComboBox
+            // 
+            this.monthComboBox.FormattingEnabled = true;
+            this.monthComboBox.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.monthComboBox.Location = new System.Drawing.Point(155, 4);
+            this.monthComboBox.Name = "monthComboBox";
+            this.monthComboBox.Size = new System.Drawing.Size(121, 21);
+            this.monthComboBox.TabIndex = 2;
+            this.monthComboBox.SelectedIndexChanged += new System.EventHandler(this.monthComboBox_SelectedIndexChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.Location = new System.Drawing.Point(3, 5);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(129, 16);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Monthly Summary";
+            // 
+            // weeklyReportTable
+            // 
+            this.weeklyReportTable.BackgroundColor = System.Drawing.Color.White;
+            this.weeklyReportTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.weeklyReportTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.week,
+            this.monday,
+            this.tuesday,
+            this.wednesday,
+            this.thursday,
+            this.friday});
+            this.weeklyReportTable.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.weeklyReportTable.Location = new System.Drawing.Point(0, 31);
+            this.weeklyReportTable.Name = "weeklyReportTable";
+            this.weeklyReportTable.Size = new System.Drawing.Size(288, 210);
+            this.weeklyReportTable.TabIndex = 0;
+            // 
+            // week
+            // 
+            this.week.HeaderText = "WEEK";
+            this.week.Name = "week";
+            this.week.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.week.Width = 45;
+            // 
+            // monday
+            // 
+            this.monday.HeaderText = "MON";
+            this.monday.Name = "monday";
+            this.monday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.monday.Width = 40;
+            // 
+            // tuesday
+            // 
+            this.tuesday.HeaderText = "TUE";
+            this.tuesday.Name = "tuesday";
+            this.tuesday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.tuesday.Width = 40;
+            // 
+            // wednesday
+            // 
+            this.wednesday.HeaderText = "WED";
+            this.wednesday.Name = "wednesday";
+            this.wednesday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.wednesday.Width = 40;
+            // 
+            // thursday
+            // 
+            this.thursday.HeaderText = "THU";
+            this.thursday.Name = "thursday";
+            this.thursday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.thursday.Width = 40;
+            // 
+            // friday
+            // 
+            this.friday.HeaderText = "FRI";
+            this.friday.Name = "friday";
+            this.friday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.friday.Width = 40;
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.White;
+            this.panel22.Controls.Add(this.panel13);
+            this.panel22.Controls.Add(this.visitor_id_error);
+            this.panel22.Controls.Add(this.customerWeeklyChart);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel22.Location = new System.Drawing.Point(294, 0);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(296, 241);
+            this.panel22.TabIndex = 4;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.DimGray;
+            this.panel13.Controls.Add(this.checkVisitorInput);
+            this.panel13.Controls.Add(this.weeklyReport);
+            this.panel13.Controls.Add(this.weeklyVisitorId);
+            this.panel13.Controls.Add(this.label16);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(296, 30);
+            this.panel13.TabIndex = 0;
+            // 
+            // checkVisitorInput
+            // 
+            this.checkVisitorInput.Location = new System.Drawing.Point(247, 4);
+            this.checkVisitorInput.Name = "checkVisitorInput";
+            this.checkVisitorInput.Size = new System.Drawing.Size(47, 23);
+            this.checkVisitorInput.TabIndex = 3;
+            this.checkVisitorInput.Text = "Check";
+            this.checkVisitorInput.UseVisualStyleBackColor = true;
+            this.checkVisitorInput.Click += new System.EventHandler(this.checkVisitorInput_Click);
+            // 
+            // weeklyReport
+            // 
+            this.weeklyReport.AutoSize = true;
+            this.weeklyReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weeklyReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.weeklyReport.Location = new System.Drawing.Point(6, 6);
+            this.weeklyReport.Name = "weeklyReport";
+            this.weeklyReport.Size = new System.Drawing.Size(92, 15);
+            this.weeklyReport.TabIndex = 0;
+            this.weeklyReport.Text = "Visitors Chart";
+            this.weeklyReport.Click += new System.EventHandler(this.weeklyReport_Click);
+            // 
+            // weeklyVisitorId
+            // 
+            this.weeklyVisitorId.Location = new System.Drawing.Point(136, 5);
+            this.weeklyVisitorId.Name = "weeklyVisitorId";
+            this.weeklyVisitorId.Size = new System.Drawing.Size(110, 20);
+            this.weeklyVisitorId.TabIndex = 2;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label16.Location = new System.Drawing.Point(114, 9);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(20, 13);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "ID";
+            // 
+            // visitor_id_error
+            // 
+            this.visitor_id_error.AutoSize = true;
+            this.visitor_id_error.ForeColor = System.Drawing.Color.Red;
+            this.visitor_id_error.Location = new System.Drawing.Point(3, 33);
+            this.visitor_id_error.Name = "visitor_id_error";
+            this.visitor_id_error.Size = new System.Drawing.Size(41, 13);
+            this.visitor_id_error.TabIndex = 4;
+            this.visitor_id_error.Text = "label15";
+            // 
+            // customerWeeklyChart
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.customerWeeklyChart.ChartAreas.Add(chartArea2);
+            this.customerWeeklyChart.Dock = System.Windows.Forms.DockStyle.Bottom;
+            legend2.Name = "Legend1";
+            this.customerWeeklyChart.Legends.Add(legend2);
+            this.customerWeeklyChart.Location = new System.Drawing.Point(0, 49);
+            this.customerWeeklyChart.Name = "customerWeeklyChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Visits";
+            series2.YValuesPerPoint = 2;
+            this.customerWeeklyChart.Series.Add(series2);
+            this.customerWeeklyChart.Size = new System.Drawing.Size(296, 192);
+            this.customerWeeklyChart.TabIndex = 3;
+            this.customerWeeklyChart.Text = "chart1";
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.Black;
+            this.panel18.Controls.Add(this.panel20);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel18.Location = new System.Drawing.Point(0, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(590, 485);
+            this.panel18.TabIndex = 2;
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.Black;
+            this.panel20.Controls.Add(this.weeklyVisitorsView);
+            this.panel20.Controls.Add(this.panel17);
+            this.panel20.Controls.Add(this.panel25);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel20.Location = new System.Drawing.Point(0, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(590, 238);
+            this.panel20.TabIndex = 1;
+            // 
+            // weeklyVisitorsView
+            // 
+            this.weeklyVisitorsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.weeklyVisitorsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Weeks,
+            this.Visits});
+            this.weeklyVisitorsView.Dock = System.Windows.Forms.DockStyle.Right;
+            this.weeklyVisitorsView.Location = new System.Drawing.Point(380, 32);
+            this.weeklyVisitorsView.Name = "weeklyVisitorsView";
+            this.weeklyVisitorsView.Size = new System.Drawing.Size(210, 206);
+            this.weeklyVisitorsView.TabIndex = 0;
+            // 
+            // Weeks
+            // 
+            this.Weeks.HeaderText = "Weeks";
+            this.Weeks.Name = "Weeks";
+            this.Weeks.Width = 120;
+            // 
+            // Visits
+            // 
+            this.Visits.HeaderText = "visits";
+            this.Visits.Name = "Visits";
+            this.Visits.Width = 50;
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.White;
+            this.panel17.Controls.Add(this.weeklyReportChart);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel17.Location = new System.Drawing.Point(0, 32);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(374, 206);
+            this.panel17.TabIndex = 1;
+            // 
+            // panel25
+            // 
+            this.panel25.BackColor = System.Drawing.Color.Gray;
+            this.panel25.Controls.Add(this.weeklyCheckBtn);
+            this.panel25.Controls.Add(this.weeklyReportDatePicker);
+            this.panel25.Controls.Add(this.label13);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel25.Location = new System.Drawing.Point(0, 0);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(590, 32);
+            this.panel25.TabIndex = 2;
+            // 
+            // weeklyCheckBtn
+            // 
+            this.weeklyCheckBtn.Location = new System.Drawing.Point(536, 5);
+            this.weeklyCheckBtn.Name = "weeklyCheckBtn";
+            this.weeklyCheckBtn.Size = new System.Drawing.Size(50, 23);
+            this.weeklyCheckBtn.TabIndex = 6;
+            this.weeklyCheckBtn.Text = "Check";
+            this.weeklyCheckBtn.UseVisualStyleBackColor = true;
+            this.weeklyCheckBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // weeklyReportDatePicker
+            // 
+            this.weeklyReportDatePicker.Location = new System.Drawing.Point(330, 6);
+            this.weeklyReportDatePicker.Name = "weeklyReportDatePicker";
+            this.weeklyReportDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.weeklyReportDatePicker.TabIndex = 5;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Location = new System.Drawing.Point(8, 8);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(107, 16);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "weekly Report";
+            // 
             // title_panel
             // 
             this.title_panel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -1250,7 +1340,7 @@
             this.title_panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.title_panel.Location = new System.Drawing.Point(0, 0);
             this.title_panel.Name = "title_panel";
-            this.title_panel.Size = new System.Drawing.Size(600, 32);
+            this.title_panel.Size = new System.Drawing.Size(600, 28);
             this.title_panel.TabIndex = 1;
             // 
             // content_title_label
@@ -1264,6 +1354,16 @@
             this.content_title_label.TabIndex = 0;
             this.content_title_label.Text = "Content Title";
             // 
+            // addVisitorBtn
+            // 
+            this.addVisitorBtn.Location = new System.Drawing.Point(512, 175);
+            this.addVisitorBtn.Name = "addVisitorBtn";
+            this.addVisitorBtn.Size = new System.Drawing.Size(59, 23);
+            this.addVisitorBtn.TabIndex = 18;
+            this.addVisitorBtn.Text = "Add\r\n";
+            this.addVisitorBtn.UseVisualStyleBackColor = true;
+            this.addVisitorBtn.Click += new System.EventHandler(this.addVisitorBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1276,21 +1376,22 @@
             this.Text = "Form1";
             this.left_panel.ResumeLayout(false);
             this.left_button_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.weeklyReportChart)).EndInit();
             this.top_level_panel.ResumeLayout(false);
             this.content_panel.ResumeLayout(false);
-            this.weeklyReportPanel.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerWeeklyChart)).EndInit();
-            this.panel18.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.weeklyReportTable)).EndInit();
-            this.panel19.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.weeklyVisitorsView)).EndInit();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
+            this.insert_panel.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.visitors_table)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.home_panel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.visitor_entry_table)).EndInit();
@@ -1307,19 +1408,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            this.insert_panel.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.visitors_table)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.weeklyReportPanel.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weeklyReportTable)).EndInit();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerWeeklyChart)).EndInit();
+            this.panel18.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.weeklyVisitorsView)).EndInit();
+            this.panel17.ResumeLayout(false);
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
             this.title_panel.ResumeLayout(false);
             this.title_panel.PerformLayout();
             this.ResumeLayout(false);
@@ -1364,7 +1470,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox insert_last_name_field;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button insert_visitor_btn;
         private System.Windows.Forms.TextBox insert_email_field;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel6;
@@ -1376,13 +1481,6 @@
         private System.Windows.Forms.Label error_message;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button upload_csv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn occupancy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn edit;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label file_name_label;
         private System.Windows.Forms.Label entry_error_label;
@@ -1395,14 +1493,11 @@
         private System.Windows.Forms.DataGridView DailyReportTable;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.DateTimePicker reportDatePicker;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel weeklyReportPanel;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.DataGridView weeklyReportTable;
-        private System.Windows.Forms.ComboBox monthComboBox;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label weeklyReport;
         private System.Windows.Forms.Button dailyReportchechbtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn visitor_id;
@@ -1421,19 +1516,36 @@
         private System.Windows.Forms.TextBox weeklyVisitorId;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.DataGridView weeklyVisitorsView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Weeks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visits;
         private System.Windows.Forms.Button checkVisitorInput;
+        private System.Windows.Forms.DataVisualization.Charting.Chart customerWeeklyChart;
+        private System.Windows.Forms.Label visitor_id_error;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn occupancy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.DataGridViewTextBoxColumn week;
         private System.Windows.Forms.DataGridViewTextBoxColumn monday;
         private System.Windows.Forms.DataGridViewTextBoxColumn tuesday;
         private System.Windows.Forms.DataGridViewTextBoxColumn wednesday;
         private System.Windows.Forms.DataGridViewTextBoxColumn thursday;
         private System.Windows.Forms.DataGridViewTextBoxColumn friday;
-        private System.Windows.Forms.DataVisualization.Charting.Chart customerWeeklyChart;
-        private System.Windows.Forms.Label visitor_id_error;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.DataVisualization.Charting.Chart weeklyReportChart;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.ComboBox monthComboBox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DateTimePicker reportDatePicker;
+        private System.Windows.Forms.Button weeklyCheckBtn;
+        private System.Windows.Forms.DateTimePicker weeklyReportDatePicker;
+        private System.Windows.Forms.Button addVisitorBtn;
     }
 }
 
